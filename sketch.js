@@ -1,3 +1,7 @@
+let bolaImagem;
+let jogadorImagem;
+let oponenteImagem;
+
 class Raquete {
     constructor(x) {
         this.x = x;
@@ -30,6 +34,13 @@ class Raquete {
         this.y = constrain(this.y, 0, height - this.h);
     }
     desenha() {
+        // se a raquete for do jogador
+        if (this.x < width / 2) {
+            image(jogadorImagem, this.x, this.y, this.w, this.h);
+        } else {
+            image(oponenteImagem, this.x, this.y, this.w, this.h);
+        }
+
         fill(color(255, 255, 255));
         rect(this.x, this.y, this.w, this.h);
     }
@@ -75,6 +86,8 @@ class Bola {
     }
 
     desenha() {
+        // desenha a bola
+        image(bolaImagem, this.x, this.y, this.r * 2, this.r * 2);
         fill(color(255, 0, 0))
         ellipse(this.x, this.y, this.r * 2, this.r * 2);
     }
@@ -83,6 +96,12 @@ class Bola {
 let bola;
 let jogador;
 let oponente;
+
+function preload() {
+    bolaImagem = loadImage('bola.png');
+    jogadorImagem = loadImage('barra01.png');
+    oponenteImagem = loadImage('barra02.png');
+}
 
 function setup() {
     createCanvas(800, 400);
