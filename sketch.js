@@ -18,11 +18,11 @@ class Raquete {
         } else {
             // se a bola estiver acima da raquete, move para cima
             if (bola.y < this.y + this.h / 2) {
-                this.y -= 8;
+                this.y -= 5;
             }
             // se a bola estiver abaixo da raquete, move para baixo
             if (bola.y > this.y + this.h / 2) {
-                this.y += 8;
+                this.y += 5;
             }
         }
 
@@ -83,7 +83,6 @@ class Bola {
 let bola;
 let jogador;
 let oponente;
-
 
 function setup() {
     createCanvas(800, 400);
